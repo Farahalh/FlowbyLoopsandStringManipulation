@@ -20,7 +20,10 @@ namespace FlowbyLoopsandStringManipulation
           //the main menu switch statement number 2.
           //8. Crating a method for askForAge to be called from inside method purchaseMultipleMovieTickets,
           //asking for age * number of tickets.
-          //9. Building menu option nr 3, the repeat word game. Using for loop to repeat userInput x 10.
+          //9. Building menu option nr 3, the repeat game. Using for loop to repeat userInput x 10.
+          //10. Building menu option nr 4, the word game. Using user input, limited to minum of 3 characters,
+          //to always pick out the 3rd word, Using the 'space' between characters to split the sentence and
+          //detect the 3rd word.
           
 
             Console.WriteLine("Welcome to the main menu!");
@@ -110,6 +113,22 @@ namespace FlowbyLoopsandStringManipulation
                 Console.WriteLine(result);
             }
 
+            static void picCorrectWord()
+            {
+                Console.WriteLine("Write a sentence: ");
+                string sentenceUserInput = Console.ReadLine();
+
+               string[] words = sentenceUserInput.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                if (words.Length >= 3)
+                {
+                    Console.WriteLine("The third word is: " + words[2]);
+                } else
+                {
+                    Console.WriteLine("Please make sure the sentence is no less than three words.");
+                }
+            }
+
             while(selectedAction != "0")
             {
                 switch(selectedAction)
@@ -129,11 +148,16 @@ namespace FlowbyLoopsandStringManipulation
                         Console.WriteLine("Welcome to the Repeat Game!");
                         repeatTenTimes();
                         break;
+                    case "4":
+                        Console.WriteLine("Welcome to the Word Game");
+                        picCorrectWord();
+                        break;
                     case "99":
                         Console.WriteLine("Welcome back to the main menu!");
-                        Console.WriteLine("1. Purchase movie tickets ");
-                        Console.WriteLine("2. The repeat game! ");
-                        Console.WriteLine("3. The word game! ");
+                        Console.WriteLine("1. Purchase single movie ticket.");
+                        Console.WriteLine("2. Purchase group movie tickets.");
+                        Console.WriteLine("3. The repeat game! ");
+                        Console.WriteLine("4. The word game! ");
                         Console.WriteLine("99. Back to Main Menu");
                         Console.WriteLine("0. Exit");
                         break;
