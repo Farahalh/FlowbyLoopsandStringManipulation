@@ -24,7 +24,10 @@ namespace FlowbyLoopsandStringManipulation
           //10. Building menu option nr 4, the word game. Using user input, limited to minum of 3 characters,
           //to always pick out the 3rd word, Using the 'space' between characters to split the sentence and
           //detect the 3rd word.
-          
+          //11. Going back to building purchaseMultipleMovieTickets, created a method to be called from main menu 
+          //number 4.
+          //Defined ticket price per age, asked user for input on amount of tickets and age per ticket
+          //calculated total cost for all tickets sold and displayed information to user.
 
             Console.WriteLine("Welcome to the main menu!");
             Console.WriteLine("Please navigate the menu by choosing a number:");
@@ -55,22 +58,45 @@ namespace FlowbyLoopsandStringManipulation
                 }
             }
 
-            //static int purchaseMultipleMovieTickets()
-            //{
-            //    Console.WriteLine("Please enter amount of tickets: ");
-            //    int tickets = int.Parse(Console.ReadLine());
+            static void purchaseMultipleMovieTickets()
+            {
+                int youthTicket = 80; 
+                int seniorTicket = 90; 
+                int standardTicket = 120; 
 
-            //    switch(tickets)
-            //    {
-            //        case < 11:
-            //            Console.WriteLine("ask for age");
-            //        break;
-            //        default:
-            //        Console.WriteLine("You can only buy 10 tickets at once.");
-            //        break;
-            //    }
-            //    return tickets;
-            //}
+                int numberOfTickets;
+                int[] ticketAge;
+
+                Console.WriteLine("Please enter amount of tickets: ");
+                numberOfTickets = int.Parse(Console.ReadLine());
+                ticketAge = new int[numberOfTickets];
+
+                for (int i = 0; i < numberOfTickets; i++)
+                {
+                    Console.WriteLine($"Enter the age of ticket #{i + 1}: ");
+                    ticketAge[i] = int.Parse(Console.ReadLine());
+                }
+
+                int totalAmount = 0;
+                for (int i = 0; i < numberOfTickets; i++ ) 
+                {
+                    int age = ticketAge[i];
+                    if (age <= 19) 
+                    { 
+                    totalAmount += youthTicket;
+                    }
+                    else if (age >= 63)
+                    {
+                        totalAmount += seniorTicket;
+                    }
+                    else
+                    {
+                        totalAmount += standardTicket;
+                    }
+                }
+                Console.WriteLine($"Number of tickets sold: {numberOfTickets}");
+                Console.WriteLine($"Total cost: {totalAmount:F2}sek");
+            }
 
             //static int askForAge()
             //{
@@ -142,7 +168,7 @@ namespace FlowbyLoopsandStringManipulation
                         break;
                     case "2":
                         Console.WriteLine("Welcome to Farah´s Cinema!");
-                        //purchaseMultipleMovieTickets();
+                        purchaseMultipleMovieTickets();
                         break;
                     case "3":
                         Console.WriteLine("Welcome to the Repeat Game!");
