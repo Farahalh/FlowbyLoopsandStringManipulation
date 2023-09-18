@@ -98,31 +98,6 @@ namespace FlowbyLoopsandStringManipulation
                 Console.WriteLine($"Total cost: {totalAmount:F2}sek");
             }
 
-            //static int askForAge()
-            //{
-            //    Console.WriteLine("Insert age for this ticket: ");
-            //    int askForAge = int.Parse(Console.ReadLine());
-            //    int storePrice = int.Parse(Console.ReadLine());
-
-            //    while(askForAge != 0) 
-            //    {
-            //        switch(askForAge)
-            //        {
-            //            case < 20:
-            //                Console.WriteLine(80);
-            //                break;
-            //            case > 64:
-            //                Console.WriteLine(90);
-            //                break;
-            //            default:
-            //                Console.WriteLine(120);
-            //                break;
-            //        }
-            //        return storePrice;
-            //    }
-            //    return askForAge;
-            //}
-
             static void repeatTenTimes()
             {
                 Console.WriteLine("Insert a word: ");
